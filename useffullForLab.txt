@@ -1,0 +1,15 @@
+let clickCount = 0;
+
+document.querySelector('.button-class').addEventListener('click', () => {
+    clickCount++;
+    console.log("Кнопка нажата", clickCount, "раз");
+});
+
+.custom-btn {
+            width: 250px;
+            height: 150px;
+            border: none;
+            border-radius: 6px;
+        }
+
+<button class="custom-btn" style="">Тестовая кнопка</button>
