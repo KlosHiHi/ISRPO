@@ -1,4 +1,7 @@
-﻿/*string value = "";
+﻿using System.Diagnostics;
+
+/*
+string value = "";
 
 while (value != "exit")
 {
@@ -24,6 +27,7 @@ while (value != "exit")
     value = Console.ReadLine().ToLower();
 }
 
+
 Console.Write("Введите цену: ");
 double price = double.Parse(Console.ReadLine());
 Console.Write("Введите скидку: ");
@@ -35,7 +39,6 @@ double CalculateDiscount(double price, double discountRate)
     Debug.Assert(price * discountRate <= price);
     return price * discountRate;
 }
-
 Console.WriteLine(CalculateDiscount(price, discountRate));
 */
 
