@@ -19,20 +19,22 @@ try
 }
 catch (DivideByZeroException ex)
 {
-    Console.WriteLine($"Ошибка: {ex.Message}");
-    File.AppendAllText("log.txt", $"[{DateTime.Now}] {ex.Message}\n");
+    PrintLog(ex);
 }
 catch (FormatException ex)
 {
-    Console.WriteLine($"Ошибка: {ex.Message}");
-    File.AppendAllText("log.txt", $"[{DateTime.Now}] {ex.Message}\n");
+    PrintLog(ex);
 }
 catch (OverflowException ex)
 {
-    Console.WriteLine($"Ошибка: {ex.Message}");
-    File.AppendAllText("log.txt", $"[{DateTime.Now}] {ex.Message}\n");
+    PrintLog(ex);
 }
 catch (Exception ex)
+{
+    PrintLog(ex);
+}
+
+static void PrintLog(Exception ex)
 {
     Console.WriteLine($"Ошибка: {ex.Message}");
     File.AppendAllText("log.txt", $"[{DateTime.Now}] {ex.Message}\n");

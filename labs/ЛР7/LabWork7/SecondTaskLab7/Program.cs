@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Net.Http.Json;
 
 Stopwatch sw = new();
 Stopwatch totalStopwatch = new();
@@ -47,8 +46,8 @@ PrintMathElapsed(ts);
 
 totalStopwatch.Stop();
 TimeSpan totalTimeSpan = totalStopwatch.Elapsed;
-Debug.WriteLine($"[{DateTime.Now}] Total time elapsed = {totalTimeSpan.Milliseconds.ToString()} ms");
-File.AppendAllText("timings.log", $"[{DateTime.Now}] Total time elapsed = {totalTimeSpan.Milliseconds.ToString()} ms{Environment.NewLine}");
+Debug.WriteLine($"[{DateTime.Now}] Total time elapsed = {totalTimeSpan.Milliseconds} ms");
+File.AppendAllText("timings.log", $"[{DateTime.Now}] Total time elapsed = {totalTimeSpan.Milliseconds} ms{Environment.NewLine}");
 
 
 void PrintReadFileElapsed(TimeSpan ts)
@@ -56,8 +55,8 @@ void PrintReadFileElapsed(TimeSpan ts)
     sw.Stop();
     ts = sw.Elapsed;
     sw.Restart();
-    Debug.WriteLine($"[{DateTime.Now}] Operation: ReadFile Elapsed = {ts.Milliseconds.ToString()} ms");
-    File.AppendAllText("timings.log", $"[{DateTime.Now}] Operation: ReadFile Elapsed = {ts.Milliseconds.ToString()} ms{Environment.NewLine}");
+    Debug.WriteLine($"[{DateTime.Now}] Operation: ReadFile Elapsed = {ts.Milliseconds} ms");
+    File.AppendAllText("timings.log", $"[{DateTime.Now}] Operation: ReadFile Elapsed = {ts.Milliseconds} ms{Environment.NewLine}");
 }
 
 void PrintMathElapsed(TimeSpan ts)
@@ -65,6 +64,6 @@ void PrintMathElapsed(TimeSpan ts)
     sw.Stop();
     ts = sw.Elapsed;
     sw.Restart();
-    Debug.WriteLine($"[{DateTime.Now}] Operation: ApiConnect Elapsed = {ts.Milliseconds.ToString()} ms");
-    File.AppendAllText("timings.log", $"[{DateTime.Now}] Operation: ApiConnect Elapsed = {ts.Milliseconds.ToString()} ms{Environment.NewLine}");
+    Debug.WriteLine($"[{DateTime.Now}] Operation: ApiConnect Elapsed = {ts.Milliseconds} ms");
+    File.AppendAllText("timings.log", $"[{DateTime.Now}] Operation: ApiConnect Elapsed = {ts.Milliseconds} ms{Environment.NewLine}");
 }
