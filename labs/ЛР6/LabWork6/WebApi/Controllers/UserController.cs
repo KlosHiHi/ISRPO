@@ -30,17 +30,12 @@ namespace WebApi.Controllers
         {
             if (!int.TryParse(id, out int uid))
             {
-
-                return BadRequest(new { error = "Invalid ID format", statusCode = "404" });
+                return BadRequest(new { error = "Invalid ID format", statusCode = "400" });
             }
 
             var user = Users.FirstOrDefault(u => u.Id == uid);
-            if (user is null)
-            {
 
-                return NotFound();
-            }
-            return user;
+            return user is null ? NotFound() : user;
         }
     }
 }
