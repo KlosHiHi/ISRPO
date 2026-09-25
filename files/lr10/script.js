@@ -3,7 +3,7 @@
 document.querySelector('h1').textContent = 'Тестирование с DevTools';
 
 // Логирование количества нажатий кнопки
-let count = 0;
+
 const button = document.querySelector('.button-class');
 
 // Отправка данных формы
@@ -13,11 +13,31 @@ form.addEventListener('submit', (event) => {
 	window.location.href = 'https://www.google.com/search?q='+document.querySelector('#searchText').value; // Переход на Google
 });
 
+
+function division(a, b){
+	try {		
+		console.log("fisrst number:", a);
+		console.log("second number:", b);
+		console.warn("division", a/b);
+	} catch (error) {
+		console.error("")
+	}
+}
+division(12, 3);
+
+
+let count = 0;
+button.addEventListener('click', () => {
+	increaseCount();
+});
+
+
+
 // 2: Отладка JavaScript
 // Пошаговая отладка
 function increaseCount() {
 	count++;
-	console.log("Текущее значение count:", count);
+	console.log("Текущее значение count:", count);	
 }
 
 // 3: Сетевые запросы
@@ -76,7 +96,7 @@ setTimeout(() => {
 	message.textContent = 'Сообщение обновлено динамически';
 }, 1000);
 
-
+console.log("Точка останова на этом логе");
 // 5: Логирование, ошибки и отладка
 // Глобальная переменная для состояния
 
@@ -96,3 +116,4 @@ function simulateError() {
 
 // Симуляция ошибки через 3 секунды
 setTimeout(simulateError, 3000);  // Ошибка через 3 секунды
+
