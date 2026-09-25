@@ -42,14 +42,17 @@ namespace LabWork11
         {
             _driver.Navigate().GoToUrl(Url);
 
-            IWebElement header = _driver.FindElement(By.Id("header"));
-            Assert.True(header.Displayed, "Заголовок должен отображаться на странице");
+            IWebElement search_text = _driver.FindElement(By.Id("search_text"));
+            IWebElement submit_button = _driver.FindElement(By.Id("submit_button"));
 
-            IWebElement test_image = _driver.FindElement(By.Id("test-image"));
-            Assert.True(test_image.Displayed, "Изображение должно отображаться на странице");
+            search_text.Clear();
+            search_text.SendKeys("cdc");
 
-            IWebElement header2 = _driver.FindElement(By.TagName("h2"));
-            Assert.True(header2.Displayed, "Пoдзаголовок должен отображаться на странице");
+            submit_button.Click();
+
+            //_wait.Until(ExpectedConditions.UrlContains("https://www.google.com/search?q=cdc"));
+
+            Assert.Contains("https://www.google.com/search?q=cdc", _driver.Url);
         }
         public void Dispose()
         {
